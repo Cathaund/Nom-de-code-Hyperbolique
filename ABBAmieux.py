@@ -12,8 +12,6 @@ Longueur_mot = 3
 
 liste_combinaisons = list(itertools.product("ABCD", repeat=Longueur_mot + 1))
 liste_mots = []
-partie_reelle = []
-partie_imaginaire = []
 
 """
 On construit une liste (liste_mot) contenant les mots de matrice de la longeur chosie
@@ -63,10 +61,6 @@ for lettre in range(len(liste_points)):
             liste_points[lettre][index_point],
             liste_points[lettre][index_point + 1],
         )
-        partie_reelle.append(liste_points[lettre][index_point][0])
-        partie_imaginaire.append(liste_points[lettre][index_point][1])
-    partie_reelle.append(liste_points[lettre][-1][0])
-    partie_imaginaire.append(liste_points[lettre][-1][1])
 
 plt.axis("equal")
 plt.show()
