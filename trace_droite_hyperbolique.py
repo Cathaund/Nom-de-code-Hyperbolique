@@ -48,6 +48,71 @@ def points_cercle(abscisse_centre, rayon, nombre_points=100):
     liste_abscisses = [abscisse_centre - rayon + i * (2 * rayon) / nombre_points for i in range(nombre_points)] + [abscisse_centre + rayon]
     liste_ordonnees = [math.sqrt(abs(rayon ** 2 - (x - abscisse_centre) ** 2)) for x in liste_abscisses] 
     return liste_abscisses, liste_ordonnees
+
+
+def points_segment(
+    abscisse_centre, rayon, pointA, pointB, nombre_points=10000, precision=0.001
+):
+    """
+    Renvoie deux listes contenant les coordonnees selon x et y des points d'une portion de cercle de centre et de
+    rayon donnés, entre les points pointA et pointB
+    """
+    liste_abscisses = [
+        abscisse_centre - rayon + i * (2 * rayon) / nombre_points
+        for i in range(nombre_points)
+    ] + [abscisse_centre + rayon]
+    liste_ordonnees = [
+        math.sqrt(abs(rayon**2 - (x - abscisse_centre) ** 2)) for x in liste_abscisses
+    ]
+    liste_abscisses_finale = []
+    liste_ordonnees_finale = []
+    for i in range(len(liste_abscisses)):
+        if (
+            liste_abscisses[i] - precision <= pointA[0]
+            and pointB[0] <= liste_abscisses[i] + precision
+        ) or (
+            liste_abscisses[i] - precision <= pointB[0]
+            and pointA[0] <= liste_abscisses[i] + precision
+        ):
+            liste_abscisses_finale.append(liste_abscisses[i])
+            liste_ordonnees_finale.append(liste_ordonnees[i])
+    return liste_abscisses_finale, liste_ordonnees_finale
+
+
+def trace_droite(A, B):
+    if A[0] == B[0]:
+        plt.plot([A[0], B[0]], [A[1], B[1]])
+    cercle = intersection_geodesique_abscisse(A, B)
+
+    points_du_cercle = points_cercle(cercle[0], cercle[1])
+    abscisses = points_du_cercle[0]
+    ordonnees = points_du_cercle[1]
+    plt.plot(abscisses, ordonnees)
+    plt.plot(abscisses, [0 for i in abscisses], c="black")
+
+
+def trace_segment(A, B):
+    if A[0] == B[0]:
+        plt.plot([A[0], B[0]], [A[1], B[1]])
+    cercle = intersection_geodesique_abscisse(A, B)
+
+    points_du_cercle = points_segment(cercle[0], cercle[1], A, B)
+    abscisses = points_du_cercle[0]
+    ordonnees = points_du_cercle[1]
+    plt.plot(abscisses, ordonnees)
+    plt.plot(abscisses, [0 for i in abscisses], c="black")
+
+
+def trace_segment_noir(A, B):
+    if A[0] == B[0]:
+        plt.plot([A[0], B[0]], [A[1], B[1]], c="black")
+    cercle = intersection_geodesique_abscisse(A, B)
+
+    points_du_cercle = points_segment(cercle[0], cercle[1], A, B)
+    abscisses = points_du_cercle[0]
+    ordonnees = points_du_cercle[1]
+    plt.plot(abscisses, ordonnees, c="black")
+    plt.plot(abscisses, [0 for i in abscisses], c="black")
     
     
     """
