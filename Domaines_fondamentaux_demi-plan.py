@@ -11,8 +11,6 @@ D = np.linalg.inv(B)
 
 liste_combinaisons = list(itertools.product("ABCD", repeat=3))
 liste_matrices = []
-partie_reelle = []
-partie_imaginaire = []
 
 for combinaison in liste_combinaisons:
     liste_pour_cette_combinaison = []
@@ -52,11 +50,6 @@ for i in range(len(liste_points_pour_tracer)):
             liste_points_pour_tracer[i][index_point],
             liste_points_pour_tracer[i][index_point + 1],
         )
-        partie_reelle.append(liste_points_pour_tracer[i][index_point][0])
-        partie_imaginaire.append(liste_points_pour_tracer[i][index_point][1])
-    partie_reelle.append(liste_points_pour_tracer[i][-1][0])
-    partie_imaginaire.append(liste_points_pour_tracer[i][-1][1])
 
-# plt.scatter(partie_reelle, partie_imaginaire)
 plt.axis("equal")
 plt.show()
