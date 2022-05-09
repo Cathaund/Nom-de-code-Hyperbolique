@@ -73,9 +73,9 @@ def points_segment(
             liste_ordonnees_finale.append(liste_ordonnees[i])
     return liste_abscisses_finale, liste_ordonnees_finale
 
-
-# attention j'en suis là
-
+"""
+Les deux prochaines fonctions ne sont pas de nous
+"""
 
 def determinant(zA, zB, precision=1e-12):
     d = zA.real * zB.imag - zA.imag * zB.real
@@ -103,6 +103,9 @@ def hyperbolic_circle(zA, zB, precision=1e-15):  # Pas de Moy
 
 
 def trace_disque():
+    """
+    trace le disque de rayon unité
+    """
     liste_abscisses, liste_ordonnees = points_cercle(0, 0, 1)
     plt.plot(liste_abscisses, liste_ordonnees, c="black")
 
@@ -133,7 +136,7 @@ def trace_segment_disque(zA, zB):
 """a = 0.5 + 0.4j
 b = -0.5 + 0.2j
 trace_disque()
-trace_geodesique_dissque(a, b)
+trace_geodesique_disque(a, b)
 axes = plt.gca()
 plt.axis("equal")
 plt.plot()
