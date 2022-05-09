@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def points_cercle(abscisse_centre, ordonnee_centre, rayon, nombre_points=10000):
     """
     Renvoie deux listes contenant les coordonnees selon x et y des points d'un cercle de centre et de
-    rayon donnés
+    rayon donnés 
     """
     liste_abscisses = [
         abscisse_centre - rayon + i * (2 * rayon) / nombre_points
