@@ -16,14 +16,10 @@ B = np.matrix("5 3; 3 5")
 C = np.linalg.inv(A)
 D = np.linalg.inv(B)
 
-Longueur_mot = 2
+Longueur_mot = 3
 
 liste_combinaisons = list(itertools.product("ABCD", repeat=Longueur_mot + 1))
 liste_mots = []
-"""
-partie_reelle = []
-partie_imaginaire = []
-"""
 
 # Pendant cette première partie de code, on effectue les calculs dans le demi-plan de Poincaré
 
@@ -74,12 +70,6 @@ for lettre in range(len(liste_points)):
             liste_points[lettre][index_point],
             liste_points[lettre][index_point + 1],
         )
-        """
-        partie_reelle.append(liste_points_pour_tracer[lettre][index_point].real)
-        partie_imaginaire.append(liste_points_pour_tracer[lettre][index_point].imag)
-    partie_reelle.append(liste_points_pour_tracer[lettre][-1].real)
-    partie_imaginaire.append(liste_points_pour_tracer[lettre][-1].imag)"""
 
-# plt.scatter(partie_reelle, partie_imaginaire)
 plt.axis("equal")
 plt.show()
