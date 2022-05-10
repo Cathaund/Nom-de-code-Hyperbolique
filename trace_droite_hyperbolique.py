@@ -43,7 +43,8 @@ def intersection_geodesique_abscisse(pointA, pointB, precision=0.01):
 
 def points_cercle(abscisse_centre, rayon, nombre_points=100):
     """
-    Renvoie deux listes contenant les coordonnees selon x et y des points d'un cercle de centre et de rayon donnés
+    Renvoie deux listes contenant les coordonnees selon x et y des points d'un demi-cercle de rayon donné 
+    et de centre situé sur l'axe des abscisses d'abscisse donnée
     """
     liste_abscisses = [abscisse_centre - rayon + i * (2 * rayon) / nombre_points for i in range(nombre_points)] + [abscisse_centre + rayon]
     liste_ordonnees = [math.sqrt(abs(rayon ** 2 - (x - abscisse_centre) ** 2)) for x in liste_abscisses] 
