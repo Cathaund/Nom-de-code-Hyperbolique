@@ -80,6 +80,9 @@ def points_segment(
 
 
 def trace_droite(A, B):
+    """
+    Trace la droite hyperbolique passant par les points A et B, avec A et B des tuples
+    """    
     if A[0] == B[0]:
         plt.plot([A[0], B[0]], [A[1], B[1]])
     cercle = intersection_geodesique_abscisse(A, B)
@@ -92,6 +95,9 @@ def trace_droite(A, B):
 
 
 def trace_segment(A, B):
+    """
+    Trace le segment hyperbolique entre les points A et B, avec A et B des tuples
+    """
     if A[0] == B[0]:
         plt.plot([A[0], B[0]], [A[1], B[1]])
     cercle = intersection_geodesique_abscisse(A, B)
@@ -104,6 +110,9 @@ def trace_segment(A, B):
 
 
 def trace_segment_noir(A, B):
+    """
+    Trace un segment hyperbolique noir entre les points A et B, avec A et B des tuples
+    """
     if A[0] == B[0]:
         plt.plot([A[0], B[0]], [A[1], B[1]], c="black")
     cercle = intersection_geodesique_abscisse(A, B)
