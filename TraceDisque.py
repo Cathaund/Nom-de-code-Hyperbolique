@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 
 
-def points_cercle(abscisse_centre, ordonnee_centre, rayon, nombre_points=10000):
+def points_cercle_disque(abscisse_centre, ordonnee_centre, rayon, nombre_points=10000):
     """
     Renvoie deux listes contenant les coordonnees selon x et y des points d'un cercle de centre et de
     rayon donnés 
@@ -30,7 +30,7 @@ def points_cercle(abscisse_centre, ordonnee_centre, rayon, nombre_points=10000):
     return liste_abscisses, liste_ordonnees
 
 
-def points_segment(
+def points_segment_disque(
     abscisse_centre, ordonnee_centre, rayon, zA, zB, nombre_points=10000
 ):
     """
@@ -78,6 +78,9 @@ Les deux prochaines fonctions ne sont pas de nous
 """
 
 def determinant(zA, zB, precision=1e-12):
+    """
+    renvoie le déterminant des points zA et zB avec une précision donnée
+    """
     d = zA.real * zB.imag - zA.imag * zB.real
     if abs(d) < precision:
         return 0
@@ -85,7 +88,10 @@ def determinant(zA, zB, precision=1e-12):
         return d
 
 
-def hyperbolic_circle(zA, zB, precision=1e-15):  # Pas de Moy
+def hyperbolic_circle(zA, zB, precision=1e-15): 
+    """
+    retourne le centre et le rayon de la géodésique passant par deux points sur le disque de Poincaré
+    """
     if (zA.real >= zB.real - precision and zA.real <= zB.real + precision) or (
         zA.imag >= zB.imag - precision and zA.imag <= zB.imag + precision
     ):
@@ -111,6 +117,9 @@ def trace_disque():
 
 
 def trace_geodesique_disque(zA, zB):
+    """
+    trace la géodésique entre deux nombres imaginaires zA et zB donnés
+    """
     plt.scatter([zA.real, zB.real], [zA.imag, zB.imag])
     if hyperbolic_circle(zA, zB)[0]:
         a, z_centre, rayon = hyperbolic_circle(zA, zB)
@@ -123,6 +132,9 @@ def trace_geodesique_disque(zA, zB):
 
 
 def trace_segment_disque(zA, zB):
+    """
+    trace le segment entre deux nombres imaginaires zA et zB donnés
+    """
     if hyperbolic_circle(zA, zB)[0]:
         a, z_centre, rayon = hyperbolic_circle(zA, zB)
         liste_abscisses_point, liste_ordonnees_point = points_segment(
