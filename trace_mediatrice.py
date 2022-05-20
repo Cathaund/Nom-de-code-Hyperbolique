@@ -123,7 +123,7 @@ def points_mediatrice(pointA, pointB, nombre_points=100):
 
 
 
-
+"""
 A = (2, 1)
 B = (1, 2)
 print(eucli(A, B))
@@ -154,7 +154,7 @@ points_du_cercle = points_mediatrice(A, B)
 abscisses = points_du_cercle[0]
 ordonnees = points_du_cercle[1]
 
-plt.scatter([A[0], B[0], cercle[0]], [A[1], B[1], 0], c = "red")
+plt.scatter([A[0], B[0], cercle[0]], [A[1], B[1], 0], c = "red")"""
 
 
 plt.plot(abscisses, ordonnees)
