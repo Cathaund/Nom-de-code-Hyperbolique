@@ -4,7 +4,7 @@ import numpy as np
 
 import trace_droite_hyperbolique
 import trace_mediatrice
-import trace_segment
+
 
 from trace_droite_hyperbolique import trace_segment
 
@@ -84,15 +84,15 @@ on relie maintenant les points contenus dans chaque liste de liste_point ensembl
 
 for lettre in range(len(liste_points)):
     for index_point in range(len(liste_points[lettre]) - 1):
-        trace_segment(liste_points[lettre][index_point],
+        trace_droite_hyperbolique.trace_segment(liste_points[lettre][index_point],
             liste_points[lettre][index_point + 1])
         
 
 # relier c1 à c2 ; c2 à c3 ; c3 à c4 ; c4 à c1
 for i in liste_points_domaines:
     for j in range(3):
-        trace_segment(i[j], i[j+1])
-    trace_segment(i[-1], i[0])
+        trace_droite_hyperbolique.trace_segment(i[j], i[j+1])
+    trace_droite_hyperbolique.trace_segment(i[-1], i[0])
 
 print(liste_points_domaines)
 
