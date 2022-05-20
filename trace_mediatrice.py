@@ -154,7 +154,7 @@ points_du_cercle = points_mediatrice(A, B)
 abscisses = points_du_cercle[0]
 ordonnees = points_du_cercle[1]
 
-plt.scatter([A[0], B[0], cercle[0]], [A[1], B[1], 0], c = "red")"""
+plt.scatter([A[0], B[0], cercle[0]], [A[1], B[1], 0], c = "red")
 
 
 plt.plot(abscisses, ordonnees)
@@ -163,4 +163,4 @@ plt.plot(abscisses, [0 for i in abscisses], c = "black")
 plt.axis("equal")
 plt.title("Tracé de la médiatrice hyperbolique reliant deux points")
     
-plt.show()
+plt.show()"""
