@@ -112,7 +112,7 @@ def trace_disque():
     """
     trace le disque de rayon unité
     """
-    liste_abscisses, liste_ordonnees = points_cercle(0, 0, 1)
+    liste_abscisses, liste_ordonnees = points_cercle_disque(0, 0, 1)
     plt.plot(liste_abscisses, liste_ordonnees, c="black")
 
 
@@ -123,7 +123,7 @@ def trace_geodesique_disque(zA, zB):
     plt.scatter([zA.real, zB.real], [zA.imag, zB.imag])
     if hyperbolic_circle(zA, zB)[0]:
         a, z_centre, rayon = hyperbolic_circle(zA, zB)
-        liste_abscisses_point, liste_ordonnees_point = points_cercle(
+        liste_abscisses_point, liste_ordonnees_point = points_cercle_disque(
             z_centre.real, z_centre.imag, rayon
         )
         plt.plot(liste_abscisses_point, liste_ordonnees_point)
@@ -137,7 +137,7 @@ def trace_segment_disque(zA, zB):
     """
     if hyperbolic_circle(zA, zB)[0]:
         a, z_centre, rayon = hyperbolic_circle(zA, zB)
-        liste_abscisses_point, liste_ordonnees_point = points_segment(
+        liste_abscisses_point, liste_ordonnees_point = points_segment_disque(
             z_centre.real, z_centre.imag, rayon, zA, zB
         )
         plt.plot(liste_abscisses_point, liste_ordonnees_point)
